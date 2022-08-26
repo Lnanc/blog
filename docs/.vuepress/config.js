@@ -1,6 +1,11 @@
+const moment = require("dayjs");
+
 module.exports = {
   // title: 'Hello VuePress',
   // description: 'Just playing around'
+  base: "/docs/",
+  title: "vue-press-demo",
+  description: "这是我的vue-press",
   themeConfig: {
     lastUpdated: "更新时间",
     // navbar: false,
@@ -52,6 +57,16 @@ module.exports = {
         ],
       },
       { text: "External", link: "https://google.com" },
+    ],
+    plugins: [
+      [
+        "@vuepress/last-updated",
+        {
+          transformer: (timestamp) => {
+            return dayjs(timestamp).format("YYYY/MM/DD HH:mm:ss");
+          },
+        },
+      ],
     ],
   },
 };
