@@ -3,7 +3,7 @@ const moment = require("dayjs");
 module.exports = {
   // title: 'Hello VuePress',
   // description: 'Just playing around'
-  base: "/docs/",
+  base: "/blog/",
   title: "vue-press-demo",
   description: "这是我的vue-press",
   themeConfig: {
