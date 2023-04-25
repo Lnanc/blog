@@ -1,5 +1,5 @@
 const moment = require("dayjs");
-
+const path = require("path");
 module.exports = {
   // title: 'Hello VuePress',
   // description: 'Just playing around'
@@ -58,15 +58,23 @@ module.exports = {
       },
       { text: "External", link: "https://google.com" },
     ],
-    plugins: [
-      [
-        "@vuepress/last-updated",
-        {
-          transformer: (timestamp) => {
-            return dayjs(timestamp).format("YYYY/MM/DD HH:mm:ss");
-          },
-        },
-      ],
+  },
+  plugins: [
+    [
+      "demo-container",
+      // "@vuepress/last-updated",
+      // {
+      //   transformer: timestamp => {
+      //     return moment(timestamp).format("YYYY/MM/DD HH:mm:ss");
+      //   },
+      // },
     ],
+  ],
+  configureWebpack: {
+    resolve: {
+      alias: {
+        "@": path.join(__dirname, "./assets"),
+      },
+    },
   },
 };
